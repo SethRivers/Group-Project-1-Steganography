@@ -16,5 +16,19 @@
 using namespace std;
 
 int main(){
+  //to do list:
+  //1. ask for encode/decode
+  //2. if encode:
+  //-ask for file name
+  //-ask for text file name
+  //-have the text get encoded into the image
+  //-give the name of the encoded image.
+  //3. if decode:
+  //-Ask for the encoded file name and an output file name
+  //-read in encoded image
+  //-extrct hidden message
+  //-send message to output file
 
+
+  
 };

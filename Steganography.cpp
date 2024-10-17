@@ -16,32 +16,36 @@
 
 using namespace std;
 
-//which is the constructor/destructor? didnt see one in the .h 
-
-int getNthbit(char cipherChar, int n){
+int Steganography::getNthbit(char cipherChar, int n){
 
 };
 
-void readImage(const std::string& fileName){
+void Steganography::readImage(const std::string& fileName){ 1
+    ifstream file;
+  string ppmName = "";
+  
+};
+
+void Steganography::printImage(const std::string& fileName){ 1
 
 };
 
-void printImage(const std::string& fileName){
+void Steganography::readCipherText(string fileName){ 1
+
+}; 
+
+void Steganography::printCipherText(const std::string& fileName){ 1
 
 };
 
-void PrintCipherText(const std::string& fileName){
+void Steganography::cleanImage(){
 
 };
 
-void cleanImage(){
+void Steganography::encipher(){
 
 };
 
-void encipher(){
-
-};
-
-void decipher(){
+void Steganography::decipher(){
 
 };
