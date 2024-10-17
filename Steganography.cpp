@@ -14,6 +14,8 @@
 #include <string>
 #include <vector>
 
+using namespace std;
+
 //which is the constructor/destructor? didnt see one in the .h 
 
 int getNthbit(char cipherChar, int n){
