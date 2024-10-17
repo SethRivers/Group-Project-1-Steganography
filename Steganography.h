@@ -1,3 +1,10 @@
+/*
+ * @file Steganography.h
+ * @author Script Sages
+ * @date 10/10/2024
+ * @brief Description: The header of the Steganography class.
+ */
+
 #ifndef STEGANOGRAPHY_H
 #define STEGANOGRAPHY_H
 
