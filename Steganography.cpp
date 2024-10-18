@@ -108,6 +108,11 @@ void Steganography::decipher() {
                 cipherChar |= (bitValue << (7 - bit)); // Set the corresponding bit in the character
             }
         }
+	// Stop decoding when null terminator is found
+	if (cipherChar == '\0') {
+	  break; // Exit the loop when the null terminator is found
+	}
+	
         cipherText += cipherChar; // Add the character to the cipher text
     }
 }
