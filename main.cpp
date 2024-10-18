@@ -8,7 +8,7 @@
  */
 
 
-#include "Vector.h"
+#include "steganography.h"
 #include <fstream>
 #include <iostream>
 #include <string>

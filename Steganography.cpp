@@ -23,8 +23,12 @@ int Steganography::getNthbit(char cipherChar, int n){
 //need to read in the file, seperate the header from the thing(nested loop with an if statement?), then establish a system to scan in the ppm data. 
 void Steganography::readImage(const std::string& fileName){ 1
     ifstream file;
-  string ppmName = "";
   
+  file.open(fileName);  
+  file >> magicNumber >> width >> height >> maxColor;
+  //extracts the first three lines into their own specialty, before shoving everything else into maxColor - perfect for the processing to come
+  
+  colorData.resize(width * height);
 };
 
 //sends the data to the file
