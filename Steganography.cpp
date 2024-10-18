@@ -26,8 +26,19 @@ void Steganography::readImage(const std::string& fileName) {
 
 // Writes the stored image data to a PPM file.
 void Steganography::printImage(const std::string& fileName) {
-  (void)fileName;
-
+  ofstream file(fileName);
+  if (!file.is_open()) {
+    cerr << "Error: Could not open file " << fileName << endl;
+    return;
+  }
+  
+  file << magicNumber << endl;
+  file << width << " " << height << endl;
+  file << maxColor << endl;
+  for (int value : colorData) {
+    file << value << " ";
+  }
+  file.close();
 }
 
 // Reads the cipher text (hidden message) from a plain text file.
