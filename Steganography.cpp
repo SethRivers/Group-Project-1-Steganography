@@ -28,7 +28,11 @@ void Steganography::readImage(const std::string& fileName){ 1
   file >> magicNumber >> width >> height >> maxColor;
   //extracts the first three lines into their own specialty, before shoving everything else into maxColor - perfect for the processing to come
   
-  colorData.resize(width * height);
+  colorData.resize(width * height, c);
+
+  file >> c.colorData;
+
+  file.close();
 };
 
 //sends the data to the file
