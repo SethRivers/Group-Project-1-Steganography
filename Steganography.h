@@ -26,7 +26,7 @@ class Steganography {
   int width; // Image width
   int height; // Image height
   int maxColor; // Max color value (e.g, 255)
-  std::vecter<int> colorData; // Raw color data
+  std::vector<int> colorData; // Raw color data
   std::string cipherText; // Hidden message
 
   /** Helper method to retrieve the nth bit of a given character.
@@ -50,7 +50,7 @@ class Steganography {
    *
    * @param fileName The name of the output PPM file.
    */
-  void printImage(const std::string& fileName) const;
+  void printImage(const std::string& fileName);
 
   /**
    * Reads the cipher text (hidden message) from a plain text file.
@@ -64,7 +64,7 @@ class Steganography {
    *
    * @param fileName The name of the output plain text file.
    */
-  void printCipherText(const std::string& fileName) const;
+  void printCipherText(const std::string& fileName);
 
   /**
    * Zeros out the least significant bit (LSB) of each color value in the image.
