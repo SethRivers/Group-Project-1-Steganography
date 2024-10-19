@@ -37,9 +37,9 @@ int main() {
         getline(cin, inputText); // Gets the name of the text file.
 	stego.readCipherText(inputText); // Reads the image file. 
 	
-	cout << ">Please enter the output PPM file name for the encoded image: ";
+	cout << ">Please enter the output PPM file name for the encoded image (Do not include '.ppm' in the name, as the code will do it for you): ";
         getline(cin, outputImage); // Gets the name for the new picture.
-	
+	outputImage += ".ppm"; // adds the ppm to the end of your filename. 
         // Encipher the message.
 	stego.encipher();
 
@@ -56,8 +56,9 @@ int main() {
         stego.readImage(inputImage); // Reads the encoded image. 
         stego.decipher(); // Decipher the message.
 	
-        cout << ">Please enter the output text file name to save the decoded message: ";
+        cout << ">Please enter the output text file name to save the decoded message (Do not include '.txt' in the name, as the code will do it for you): ";
         getline(cin, outputText); // Gets the name for the new text file.
+	outputText += ".txt"; // Adds the .txt to the end of your filename. 
 	
         stego.printCipherText(outputText);// Print the cipher text to a file. 
         cout << ">Your message decoded and saved to: " << outputText << endl;

@@ -14,6 +14,7 @@ Disclaimer:
 **Driver(main.cpp):**
 - 
 - The UI was set up to take a user step by step through the program with hopefully no hiccups. Ontop of this, there were multiple safety net cases installed in order to ensure that invalid inputs could not interfere with overall function of the program.                                    
+- The program was made to include '.txt' and '.ppm' automatically when naming an output file in order to avoid situations that result in the data being deposited in disorganized locations. 
 
 **Steganography.h:**
 - 
