@@ -17,7 +17,7 @@ CC = g++
 CFLAGS = -g -Wall -Wextra -c
 
 #Links the .o files together and creates an executable
-TARGET = Steg
+TARGET = steg
 
 #Readies $(TARGET) for use in the following code
 all: $(TARGET)
@@ -36,4 +36,4 @@ Steganography.o: 	Steganography.h Steganography.cpp
 
 #Cleans out any unnecaary items post compiling.
 clean:
-		$(RM) *.o *~ Steg
+		$(RM) *.o *~ steg

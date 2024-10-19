@@ -20,17 +20,17 @@ int Steganography::getNthbit(char cipherChar, int n) {
 
 // Reads a PPM image from a file and stores it in the class variables.
 void Steganography::readImage(const std::string& fileName) {
-  ifstream file(fileName);
-  if (!file.is_open()) {
-    cerr << "Error: Could not open file: " << fileName << endl;
-    return;
+  ifstream file(fileName); // opens file
+  if (!file.is_open()) { // checks if the image file could be opened correctly
+    cerr << "[Error: Could not open file: " << fileName << ". Closing program]" << endl;
+    exit(0); // closes program. Is an alternative to the return 0 prompt. 
   }
-  file >> magicNumber >> width >> height >> maxColor;
+  file >> magicNumber >> width >> height >> maxColor; //extracts header data
   colorData.resize(width * height * 3); // Creates a space to store the color information for each pixel in the image.
   for (size_t i = 0; i < colorData.size(); ++i) { //Loops through the space created for color values and reads the actual color values from the file into colorData.
     file >> colorData[i];
   }
-  file.close();
+  file.close(); // closes file to prevent issues
 }
 
 
@@ -38,9 +38,9 @@ void Steganography::readImage(const std::string& fileName) {
 // Writes the stored image data to a PPM file.
 void Steganography::printImage(const std::string& fileName) {
   ofstream file(fileName); //Tries to open file with the name given by fileName
-  if (!file.is_open()) { //Checks to see if the file opened correctly
-    cerr << "Error: Could not open file " << fileName << endl;
-    return;
+  if (!file.is_open()) { //Checks to see if the image file opened correctly
+    cerr << "[Error: Could not open file: " << fileName << ". Closing program]" << endl;
+    exit(0); // closes program
   }
   
   file << magicNumber << endl; //Special identifier for the file format
@@ -55,9 +55,9 @@ void Steganography::printImage(const std::string& fileName) {
 // Reads the cipher text (hidden message) from a plain text file.
 void Steganography::readCipherText(const std::string& fileName) {
   ifstream file(fileName);
-  if (!file.is_open()) {
-    cerr << "Error: Could not open file  " << fileName << endl;
-    return;
+  if (!file.is_open()) { //checks if the text file opened correctly
+    cerr << "[Error: Could not open file:  " << fileName << ". Closing program]" << endl;
+    exit(0); // closes program
   }
   
   getline(file, cipherText, '\0'); // Will read everything in the file until it reaches the end of the string
@@ -67,9 +67,9 @@ void Steganography::readCipherText(const std::string& fileName) {
 // Writes the stored cipher text to a plain text file.
 void Steganography::printCipherText(const std::string& fileName) {
   ofstream file(fileName);
-  if (!file.is_open()) {
-    cerr << "Error: Could not open file " << fileName << endl;
-    return;
+  if (!file.is_open()) { // checks if the text file opened correctly
+    cerr << "[Error: Could not open file: " << fileName << ". Closing program]" << endl;
+    exit(0); // closes program
   }
   
   file << cipherText; // Sends the contents of 'cipherText' to specified file.
@@ -85,8 +85,9 @@ void Steganography::cleanImage() {
 
 // Encodes the cipher text into the image data by modifying the least significant bits of the color data.
 void Steganography::encipher() {
-    cleanImage(); // Clean the image before encoding
+    cleanImage(); // Cleans the image before encoding
 
+    //imbeded loop for encoding the data into the image
     for (size_t i = 0; i < cipherText.size(); ++i) {
         for (int bit = 0; bit < 8; ++bit) {
             if (i * 8 + bit < colorData.size()) {
